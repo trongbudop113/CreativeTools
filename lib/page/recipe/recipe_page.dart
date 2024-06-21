@@ -1,5 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:creative_tools/core/custom_get_view.dart';
+import 'package:creative_tools/page/recipe/model/banner/banner_view.dart';
+import 'package:creative_tools/page/recipe/model/category/category_recipe_view.dart';
+import 'package:creative_tools/page/recipe/model/chef/chef_view.dart';
+import 'package:creative_tools/page/recipe/model/delicious/delicious_view.dart';
+import 'package:creative_tools/page/recipe/model/inbox/inbox_view.dart';
+import 'package:creative_tools/page/recipe/model/tasty_recipe/tasty_recipe_view.dart';
 import 'package:creative_tools/page/recipe/recipe_controller.dart';
 import 'package:creative_tools/src/image_resource.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +16,14 @@ class RecipePage extends CustomGetView<RecipeController> {
 
   @override
   Widget buildMobileUI(BuildContext context) {
-    return Column(
-      children: [
-
-      ],
+    return ListView.builder(
+      itemCount: controller.listModelViewMobile.length,
+      shrinkWrap: true,
+      padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (c, i){
+        return controller.listModelViewMobile[i];
+      },
     );
   }
 

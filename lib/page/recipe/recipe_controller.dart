@@ -5,14 +5,19 @@ import 'package:creative_tools/page/recipe/model/banner/banner_model.dart';
 import 'package:creative_tools/page/recipe/model/banner/banner_view.dart';
 import 'package:creative_tools/page/recipe/model/category/category_recipe_model.dart';
 import 'package:creative_tools/page/recipe/model/category/category_recipe_view.dart';
+import 'package:creative_tools/page/recipe/model/category/category_recipe_view_mobile.dart';
 import 'package:creative_tools/page/recipe/model/chef/chef_model.dart';
 import 'package:creative_tools/page/recipe/model/chef/chef_view.dart';
+import 'package:creative_tools/page/recipe/model/chef/chef_view_mobile.dart';
 import 'package:creative_tools/page/recipe/model/delicious/delecious_model.dart';
 import 'package:creative_tools/page/recipe/model/delicious/delicious_view.dart';
+import 'package:creative_tools/page/recipe/model/delicious/delicious_view_mobile.dart';
 import 'package:creative_tools/page/recipe/model/inbox/inbox_model.dart';
 import 'package:creative_tools/page/recipe/model/inbox/inbox_view.dart';
+import 'package:creative_tools/page/recipe/model/inbox/inbox_view_mobile.dart';
 import 'package:creative_tools/page/recipe/model/tasty_recipe/tasty_recipe_model.dart';
 import 'package:creative_tools/page/recipe/model/tasty_recipe/tasty_recipe_view.dart';
+import 'package:creative_tools/page/recipe/model/tasty_recipe/tasty_recipe_view_mobile.dart';
 import 'package:creative_tools/src/image_resource.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -28,6 +33,7 @@ class RecipeBinding extends Bindings{
 class RecipeController extends CustomGetController{
 
   List<Widget> listModelView = [];
+  List<Widget> listModelViewMobile = [];
 
   @override
   void onInit() {
@@ -51,6 +57,14 @@ class RecipeController extends CustomGetController{
       InboxView(model: inboxModel,),
       ]
     );
+    listModelViewMobile.addAll([
+      BannerView(model: bannerModel),
+      CategoryRecipeViewMobile(model: categoryRecipeModel,),
+      TastyRecipeViewMobile(model: tastyRecipeModel,),
+      ChefViewMobile(model: chefModel,),
+      DeliciousViewMobile(model: deliciousModel,),
+      InboxViewMobile(model: inboxModel,),
+    ]);
   }
 
   Widget getViewModel(int index){
